@@ -1,5 +1,5 @@
 <?php
-echo '
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,19 +11,45 @@ echo '
 <script type="text/javascript">
     $(function () {
         var interval = setInterval(function() { 
-            $.post("ping.php", function(data, status){
-                $("#ping-east").append(data +'<br>');
+            $.post("ping.php", {url: 'http://clj8demo-prod-wapp.azurewebsites.net/'}, function(west){
+                $.post("ping.php", {url: 'http://clj8demo-dev-wapp.azurewebsites.net/'}, function(east, status){
+                
+                    $("#ping-east #box").prepend(east +'<br>');
+                    $("#ping-west #box").prepend(west +'<br>');
+                    eastUp = east.indexOf("line") != -1;
+                    westUp = west.indexOf("line") != -1;
+                    if(eastUp && westUp)
+                        $('#us').attr("src", "west_up_east_up.png");
+                    else if(eastUp && !westUp)
+                        $('#us').attr("src", "west_down_east_up.png");
+                    else if(!eastUp && westUp)
+                        $('#us').attr("src", "west_up_east_down.png");                
+                });
             });
-        }, 2000);
+            
+        }, 1000);
     });
 </script>
 </head>
 
 <body>
     <h1></h1>
-    <img src="us.png" id=us>
-    <div id="ping-east"></div>
-    <div id="ping-west"></div>
+    <img src="west_up_east_up.png" id=us>
+    <div id=ping>
+        <div id="ping-west">
+            <div id=title>PINGING US WEST</div>
+            <div id=box></div>
+        </div>
+        <div id="ping-east">
+            <div id=title>PINGING US EAST</div>
+            <div id=box></div>
+        </div>
+    </div>
+    <br>
+    <div id=nav>
+        <a href="https://starbucks.datadoghq.com/screen/224158/testoperations" target="_blank"><img src="datadog.png" id=datadog></a>
+        <a href="https://github.com/MattYar/clj8demoProd" target="_blank"><img src="github.png" id=github></a>
+    </div>
 </body>
 
 </html>

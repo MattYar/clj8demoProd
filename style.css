@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Saira:200,400,700');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 
 h1 {
     font-family: 'Saira', sans-serif;
@@ -7,7 +8,7 @@ h1 {
     font-size: 40px;
 }
 h1::before {
-    content:"US EAST - DEv";
+    content:"US WEST - PROD";
 }
 body {
     background: rgba(115,176,197,.2);
@@ -15,5 +16,76 @@ body {
 img#us {
     display: block;
     margin: auto;
-    width: 700px;
+    width: 600px;
+}
+#ping {
+  display: flex;
+  justify-content: center;
+}
+#ping #ping-west #box, #ping #ping-east #box {
+    background: rgba(81,73,84,1);
+    margin: 10px;
+    padding: 10px;
+    width: 275px;
+    height: 150px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    overflow-y: scroll;
+}
+
+#ping #ping-west #title, #ping #ping-east #title {
+    margin: 5px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: 200;
+    text-transform: uppercase;
+    color: rgba(121,113,124,1);
+}
+#nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#datadog {
+    width: 250px;
+    -moz-transform: scale(.95);
+    -webkit-transform: scale(.95);
+    -o-transform: scale(.95);
+    -ms-transform: scale(.95);
+    transform: scale(.95);
+    -webkit-transition: all 100ms ease-in-out;
+    -moz-transition: all 100ms ease-in-out;
+    -ms-transition: all 100ms ease-in-out;
+    -o-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
+}
+#datadog:hover {
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+#github {
+    width: 300px;
+    -moz-transform: scale(.95);
+    -webkit-transform: scale(.95);
+    -o-transform: scale(.95);
+    -ms-transform: scale(.95);
+    transform: scale(.95);
+    -webkit-transition: all 100ms ease-in-out;
+    -moz-transition: all 100ms ease-in-out;
+    -ms-transition: all 100ms ease-in-out;
+    -o-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
+}
+#github:hover {
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
 }
