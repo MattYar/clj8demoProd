@@ -111,6 +111,12 @@ img#us {
     text-transform: uppercase;
     text-align: center;
 }
+#fix:hover {
+    background: #27ae60;
+}
+#break:hover {
+    background: #c0392b;
+}
 #fix::before {
     content: "Fix";
 }
